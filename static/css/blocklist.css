@@ -1,0 +1,14 @@
+body{
+    text-align:center;
+
+}
+table{
+        border-collapse: collapse;
+        font-family: Calibri, sans-serif;
+        margin:auto;
+
+}
+td {
+    border: solid thin;
+    text-align: center;
+    padding: 10px; }
