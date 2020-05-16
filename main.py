@@ -11,7 +11,7 @@ def get_user_data():
 
 @app.route("/update_result",methods = ['POST'])
 def update_result():
-    userId = request.form["userid"]
+    userId = request.form['userid']
     return dbconnect.add_user_data(userId)
 
 if __name__ == "__main__":

@@ -3,12 +3,12 @@ import mysql.connector
 mydb = mysql.connector.connect(user='muneef', password="password", host='127.0.0.1',database="users")
 mycursor = mydb.cursor()
 def read_user_data():
-    result = ["<tr><th  id=\"userid\">userid</th><th>email</th><th>name</th><th>access count</th><th>blocked</th><th>reason</th><th>unblock</th><tr>"]
+    result = ["<tr><th>userid</th><th>email</th><th>name</th><th>access count</th><th>blocked</th><th>reason</th><th>unblock</th><tr>"]
     mycursor.execute("select * from block_list")
     myresult = mycursor.fetchall()
     for x in myresult:
         if (x[4]=="TRUE"):
-            result.append("<tr><td>"+str(x[0])+ "</td><td>"+x[1]+"</td><td>"+x[2]+"</td><td>"+str(x[3])+"</td><td>"+x[4]+"</td><td>"+x[5]+"</td><td><button id=\"unblock\" onclick=\"update_result()\">unblock</button></td></tr>")
+            result.append("<tr><td id=\"userid\">"+str(x[0])+ "</td><td>"+x[1]+"</td><td>"+x[2]+"</td><td>"+str(x[3])+"</td><td>"+x[4]+"</td><td>"+x[5]+"</td><td><button id=\"unblock\" onclick=\"update_result()\">unblock</button></td></tr>")
         else:
             result.append("<tr><td>"+str(x[0])+ "</td><td>"+x[1]+"</td><td>"+x[2]+"</td><td>"+str(x[3])+"</td><td>"+x[4]+"</td><td>"+x[5]+"</td></tr>")
     return "".join(result)
